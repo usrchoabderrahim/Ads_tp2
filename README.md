@@ -1,30 +1,33 @@
-﻿# TP1 Python — Partie 1
+﻿# TP 2 — Simulation multi-agents avec Mesa 3
 
-Ce notebook propose des exercices pratiques pour apprendre les bases de Python.
+Ce TP étudie la formation de l’opinion publique à l’aide d’un modèle multi-agents en Python. Chaque agent représente un citoyen dont l’opinion évolue selon les opinions des agents voisins.
 
-## Exercices
+## Objectifs
 
-Le notebook aborde notamment :
+- Décrire le modèle avec le protocole ODD : objectifs, entités, variables d’état et processus.
+- Implémenter un agent `CitizenAgent` et un modèle `OpinionModel` avec Mesa 3.
+- Observer l’évolution des opinions grâce aux données globales et individuelles.
+- Comparer l’influence sociale pour plusieurs valeurs du paramètre `alpha`.
 
-- la conversion de types et le calcul d’une moyenne pondérée ;
-- les conditions et l’analyse d’une équation du second degré ;
-- les boucles `for` et `while` ;
-- les fonctions, `map()` et `zip()` ;
-- les listes et le calcul de la médiane à partir de notes saisies dans l’ordre croissant ;
-- les dictionnaires, les listes et les tuples pour configurer un système multi-agents.
+## Fonctionnement du modèle
+
+Les agents sont placés sur une grille torique de 10 × 10. Chaque opinion est comprise entre 0 et 1. À chaque étape, un agent calcule la moyenne des opinions de ses voisins, puis rapproche sa propre opinion de cette moyenne selon `alpha`.
+
+Le notebook compare trois réglages : `alpha = 0`, `alpha = 0,5` et `alpha = 1`. Il affiche l’opinion moyenne et la variance de la population, ainsi que les trajectoires d’un échantillon de 20 agents. Le `DataCollector` de Mesa recueille ces données pendant 50 étapes.
+
+## Fichiers
+
+- Notebook du TP : `src/python_uv_workspace/TP2Mesa_Simulation_MA.ipynb`
+- Rapport : `rapport_abderrahim_chokri.ipynb`
+
+Le rapport contient les graphiques issus des exécutions et les réponses aux cinq premières questions de la dernière cellule de questions du TP.
 
 ## Ouvrir le notebook
 
-Le fichier se trouve ici :
-
-```text
-src/python_uv_workspace/TP1python_partie1.ipynb
-```
-
-Vous pouvez l’ouvrir avec Jupyter Notebook, JupyterLab ou Visual Studio Code. Avec JupyterLab installé dans l’environnement du projet, lancez :
+Depuis la racine du projet, lancez JupyterLab avec l’environnement `uv` :
 
 ```bash
 uv run jupyter lab
 ```
 
-Puis ouvrez `src/python_uv_workspace/TP1python_partie1.ipynb`.
+Puis ouvrez le notebook du TP ou le rapport dans JupyterLab, Jupyter Notebook ou Visual Studio Code.
